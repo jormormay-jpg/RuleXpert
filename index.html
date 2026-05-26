@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rulxpert</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app" id="app">
+      <section class="hero" aria-labelledby="app-title">
+        <div class="brand-block">
+          <p class="eyebrow">Calculadora didactica de ruleta europea</p>
+          <h1 id="app-title">rulxpert</h1>
+        </div>
+
+        <div class="roulette-shell base-shell">
+          <div
+            class="roulette-board"
+            id="baseBoard"
+            data-board="base"
+            aria-label="Tablero de ruleta con probabilidades generales"
+          ></div>
+          <div class="probability-panel" id="basePanel" aria-live="polite">
+            Pulsa un numero, color, fila o columna para ver su probabilidad.
+          </div>
+        </div>
+
+        <button class="start-button" id="startButton" type="button">EMPEZAR</button>
+      </section>
+
+      <section class="tracker" id="tracker" aria-labelledby="tracker-title" hidden>
+        <div class="tracker-inner">
+          <div class="section-heading">
+            <p class="eyebrow">Calculadora por historial</p>
+            <h2 id="tracker-title">ruleta 2</h2>
+          </div>
+
+          <div class="roulette-shell">
+            <div
+              class="roulette-board"
+              id="dynamicBoard"
+              data-board="dynamic"
+              aria-label="Tablero de ruleta con probabilidades ajustadas"
+            ></div>
+            <div class="probability-panel" id="dynamicPanel" aria-live="polite">
+              Sin tiradas anotadas: las probabilidades son iguales que en la ruleta general.
+            </div>
+          </div>
+
+          <form class="entry-form" id="entryForm">
+            <label class="sr-only" for="spinInput">Numero salido</label>
+            <input
+              id="spinInput"
+              type="number"
+              inputmode="numeric"
+              min="0"
+              max="36"
+              placeholder="Numero 0-36"
+              autocomplete="off"
+            />
+            <button class="note-button" type="submit">ANOTAR!</button>
+          </form>
+          <p class="form-message" id="formMessage" aria-live="polite"></p>
+
+          <div class="history-wrap" aria-labelledby="history-title">
+            <h3 id="history-title">Historial</h3>
+            <div class="history-strip" id="historyStrip">
+              <span class="history-empty">Sin tiradas todavia</span>
+            </div>
+          </div>
+
+          <section class="stats" aria-labelledby="stats-title">
+            <div class="stats-title-row">
+              <h3 id="stats-title">Probabilidades</h3>
+              <span id="totalSpins">0 tiradas</span>
+            </div>
+            <div class="stats-grid" id="statsGrid"></div>
+            <div class="temperature-grid">
+              <article class="temperature-card">
+                <h4>Numeros calientes</h4>
+                <p id="hotNumbers">Anota tiradas para calcularlos.</p>
+              </article>
+              <article class="temperature-card">
+                <h4>Numeros frios</h4>
+                <p id="coldNumbers">Anota tiradas para calcularlos.</p>
+              </article>
+            </div>
+            <div class="strategy-grid" id="strategyGrid" aria-label="Jugadas especiales"></div>
+            <div class="strategy-panel" id="strategyPanel" aria-live="polite">
+              Pulsa una jugada especial para ver su probabilidad.
+            </div>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
